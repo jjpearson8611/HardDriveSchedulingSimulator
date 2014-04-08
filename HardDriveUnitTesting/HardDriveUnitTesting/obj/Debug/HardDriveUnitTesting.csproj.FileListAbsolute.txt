@@ -1,0 +1,7 @@
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\bin\Debug\HardDriveUnitTesting.dll
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\bin\Debug\HardDriveUnitTesting.pdb
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\bin\Debug\HardDriveScheduler.exe
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\bin\Debug\HardDriveScheduler.pdb
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\obj\Debug\HardDriveUnitTesting.csprojResolveAssemblyReference.cache
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\obj\Debug\HardDriveUnitTesting.dll
+L:\GIT\HardDriveSchedulingSimulator\HardDriveUnitTesting\HardDriveUnitTesting\obj\Debug\HardDriveUnitTesting.pdb
