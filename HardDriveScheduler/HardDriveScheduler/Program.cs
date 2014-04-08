@@ -16,6 +16,8 @@ namespace HardDriveScheduler
             Handler.GenerateRequests(ref requests);
             Console.WriteLine("FCFS " + Handler.FCFS(requests).ToString());
             Console.WriteLine("SSTF " + Handler.SSTF(requests).ToString());
+            Console.WriteLine("LOOK " + Handler.LOOK(requests).ToString());
+            Console.WriteLine("CLOOK " + Handler.CLOOK(requests).ToString());
         }
 
     }

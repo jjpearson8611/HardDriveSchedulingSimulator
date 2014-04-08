@@ -124,7 +124,163 @@ namespace HardDriveScheduler
         /// <returns></returns>
         public int LOOK(int[] requests, int length = 1000)
         {
+            //buffersize will be 10 for now
+            int BufferSize = 10;
 
+            //to hold the temp buffer of size 10
+            List<int> tempBuffer = new List<int>();
+
+            //going out/up on hardrive or in/down on hard drive
+            bool GoingUpWards = true;
+
+            //counts if we have done all the numbers
+            int TotalComputed = 0;
+
+            //holds the total distance
+            int Distance = 0;
+
+            //counts the number we got from the sweep and adds that many 
+            //back into the array
+            int NumberRemoved;
+
+            //keeps track of the current position of the read heads
+            int CurrentPosition = 0;
+
+            //fills the buffer with the first buffersize of information
+            for (int i = 0; i < BufferSize; i++)
+            {
+                tempBuffer.Add(requests[i]);
+            }
+
+            //while we are still looking for info keep going
+            while(TotalComputed < length)
+            {
+                //sort the buffer so we can get them as we go
+                tempBuffer.Sort();
+
+                //reset the number removed
+                NumberRemoved = 0;
+
+                //are we going up or down
+                if (GoingUpWards)
+                {
+                    for (int w = 0; w < tempBuffer.Count; w++)
+                    {
+                        if (tempBuffer[w] >= CurrentPosition)
+                        {
+                            TotalComputed++;
+                            NumberRemoved++;
+                            Distance += Math.Abs(tempBuffer[w] - CurrentPosition);
+                            CurrentPosition = tempBuffer[w];
+                            tempBuffer.Remove(tempBuffer[w]);
+                            w--;
+                        }
+                    }
+
+                    //change direction
+                    GoingUpWards = false;
+                }
+                else
+                {
+                    for (int w = tempBuffer.Count - 1; w >= 0; w--)
+                    {
+                        if (tempBuffer[w] <= CurrentPosition)
+                        {
+                            TotalComputed++;
+                            NumberRemoved++;
+                            Distance += Math.Abs(tempBuffer[w] - CurrentPosition);
+                            CurrentPosition = tempBuffer[w];
+                            tempBuffer.Remove(tempBuffer[w]);
+                        }
+                    }
+                    //change direction
+                    GoingUpWards = true;
+                }
+
+                //fill in the space we missed
+                for (int j = 0; j < NumberRemoved; j++)
+                {
+                    if(j + TotalComputed < length)
+                    {
+                        tempBuffer.Add(requests[j + TotalComputed]);
+                    }
+                }
+            }
+
+            return Distance;
+        }
+
+        /// <summary>
+        /// Uses the CLook Algorithm to determine hard drive movement distance totals
+        /// </summary>
+        /// <param name="requests">Array of ints to use as queue of inputs</param>
+        /// <param name="length">How long your int array is default is 1000 as per prof</param>
+        /// <returns></returns>
+        public int CLOOK(int[] requests, int length = 1000)
+        {
+            //buffersize will be 10 for now
+            int BufferSize = 10;
+
+            //to hold the temp buffer of size 10
+            List<int> tempBuffer = new List<int>();
+
+            //counts if we have done all the numbers
+            int TotalComputed = 0;
+
+            //holds the total distance
+            int Distance = 0;
+
+            //counts the number we got from the sweep and adds that many 
+            //back into the array
+            int NumberRemoved;
+
+            //keeps track of the current position of the read heads
+            int CurrentPosition = 0;
+
+            //fills the buffer with the first buffersize of information
+            for (int i = 0; i < BufferSize; i++)
+            {
+                tempBuffer.Add(requests[i]);
+            }
+
+            //while we are still looking for info keep going
+            while (TotalComputed < length)
+            {
+                //sort the buffer so we can get them as we go
+                tempBuffer.Sort();
+
+                //reset the number removed
+                NumberRemoved = 0;
+                for (int w = 0; w < tempBuffer.Count; w++)
+                {
+                    if (tempBuffer[w] >= CurrentPosition)
+                    {
+                        TotalComputed++;
+                        NumberRemoved++;
+                        Distance += Math.Abs(tempBuffer[w] - CurrentPosition);
+                        CurrentPosition = tempBuffer[w];
+                        tempBuffer.Remove(tempBuffer[w]);
+                        w--;
+                    }
+                }
+                //fill in the space we missed
+                for (int j = 0; j < NumberRemoved; j++)
+                {
+                    if (j + TotalComputed < length)
+                    {
+                        tempBuffer.Add(requests[j + TotalComputed]);
+                    }
+                }
+
+                //if there hasn't been any updates for a while buffer must be full reset the head
+                if (NumberRemoved == 0)
+                {
+                    Distance += CurrentPosition; 
+                    CurrentPosition = 0;
+                }
+            }
+
+            return Distance;
         }
     }
 }
