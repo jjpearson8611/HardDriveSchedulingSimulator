@@ -4,3 +4,9 @@ L:\GIT\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\bin\De
 L:\GIT\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.exe
 L:\GIT\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.pdb
 L:\GIT\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.csprojResolveAssemblyReference.cache
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\bin\Debug\HardDriveScheduler.exe.config
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.exe
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.pdb
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\bin\Debug\HardDriveScheduler.exe
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\bin\Debug\HardDriveScheduler.pdb
+D:\Programming\GitDumpsHere\HardDriveSchedulingSimulator\HardDriveScheduler\HardDriveScheduler\obj\Debug\HardDriveScheduler.csprojResolveAssemblyReference.cache

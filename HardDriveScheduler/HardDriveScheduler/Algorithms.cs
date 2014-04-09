@@ -343,8 +343,8 @@ namespace HardDriveScheduler
                             w--;
                         }
                     }
-                    Distance += Math.Abs(4999 - CurrentPosition);
-                    CurrentPosition = 4999;
+                    Distance += Math.Abs(5000 - CurrentPosition);
+                    CurrentPosition = 5000;
                     //change direction
                     GoingUpWards = false;
                 }
@@ -379,9 +379,6 @@ namespace HardDriveScheduler
             }
 
             return Distance;
-        }
-
-            return 0;
         }
     }
 }
