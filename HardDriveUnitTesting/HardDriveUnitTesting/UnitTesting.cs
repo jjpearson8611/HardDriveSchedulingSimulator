@@ -124,6 +124,46 @@ namespace HardDriveUnitTesting
         }
         #endregion
 
+
+        #region SCANTests
+        [TestMethod]
+        public void SCANTestOne()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 10, 5, 0, 5, 10, 0, 5, 10, 5, 0, 5, 10, 5 };
+
+            int result = Tester.SCAN(SmallTest, 13);
+            int compare = 25;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        [TestMethod]
+        public void SCANTestTwo()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
+            int result = Tester.SCAN(SmallTest, 11);
+            int compare = 11;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        [TestMethod]
+        public void SCANKTestAllSameNumber()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+            int result = Tester.SCAN(SmallTest, 14);
+            int compare = 1;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        #endregion
+
         #region CLOOKTests
         [TestMethod]
         public void CLOOKTestOne()
