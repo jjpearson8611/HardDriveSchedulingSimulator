@@ -380,5 +380,77 @@ namespace HardDriveScheduler
 
             return Distance;
         }
+
+        /// <summary>
+        /// Find the seek time needed using the CSCAN algorithm
+        /// </summary>
+        /// <param name="reqeuests">Array of ints to use as queue of inputs</param>
+        /// <param name="length">How ong your int array is default is 1000 as per prof</param>
+        /// <returns></returns>
+        public int CSCAN(int[] requests, int length = 1000)
+        {
+
+            //buffersize will be 10 for now
+            int BufferSize = 10;
+
+            //to hold the temp buffer of size 10
+            List<int> tempBuffer = new List<int>();
+
+            //counts if we have done all the numbers
+            int TotalComputed = 0;
+
+            //holds the total distance
+            int Distance = 0;
+
+            //counts the number we got from the sweep and adds that many 
+            //back into the array
+            int NumberRemoved;
+
+            //keeps track of the current position of the read heads
+            int CurrentPosition = 0;
+
+            //fills the buffer with the first buffersize of information
+            for (int i = 0; i < BufferSize; i++)
+            {
+                tempBuffer.Add(requests[i]);
+            }
+
+            //while we are still looking for info keep going
+            while (TotalComputed < length)
+            {
+                //sort the buffer so we can get them as we go
+                tempBuffer.Sort();
+
+                //reset the number removed
+                NumberRemoved = 0;
+
+                for (int w = 0; w < tempBuffer.Count; w++)
+                {
+                    if (tempBuffer[w] >= CurrentPosition)
+                    {
+                        TotalComputed++;
+                        NumberRemoved++;
+                        Distance += Math.Abs(tempBuffer[w] - CurrentPosition);
+                        CurrentPosition = tempBuffer[w];
+                        tempBuffer.Remove(tempBuffer[w]);
+                        w--;
+                    }
+                }
+
+                Distance += Math.Abs(0 - CurrentPosition);
+                CurrentPosition = 0;
+
+                //fill in the space we missed
+                for (int j = 0; j < NumberRemoved; j++)
+                {
+                    if (j + TotalComputed < length)
+                    {
+                        tempBuffer.Add(requests[j + TotalComputed]);
+                    }
+                }
+            }
+
+            return Distance;
+        }
     }
 }

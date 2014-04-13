@@ -202,5 +202,45 @@ namespace HardDriveUnitTesting
             Assert.AreEqual(compare, result, "Correct Output");
         }
         #endregion
+
+        #region CSCANTests
+        [TestMethod]
+        public void CSCANTestOne()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 10, 5, 0, 5, 10, 0, 5, 10, 5, 0, 5, 10, 5 };
+
+            int result = Tester.CSCAN(SmallTest, 13);
+            int compare = 40;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        [TestMethod]
+        public void CSCANTestTwo()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
+            int result = Tester.CSCAN(SmallTest, 11);
+            int compare = 42;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        [TestMethod]
+        public void CSCANTestAllSameNumber()
+        {
+            Algorithms Tester = new Algorithms();
+
+            int[] SmallTest = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+            int result = Tester.CSCAN(SmallTest, 14);
+            int compare = 4;
+
+            Assert.AreEqual(compare, result, "Correct Output");
+        }
+        #endregion
+    
     }
 }
